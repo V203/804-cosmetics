@@ -8,22 +8,35 @@ import Shop from "./pages/Shop";
 import get_all_products, { add, grand_total, sub } from "./Service";
 import './App.css'
 import axios from "axios";
+import { IProducts } from "./Interfaces/IProducts";
+import supabase from "./Supabase/Supabase";
 
 function App() {
   let [products, setProducts] = useState<any>([]);
 
 
-  let [order, setOrder] = useState<number>(0.00);
+  let [order, setOrder] = useState(0.00);
 
   useEffect(() => {
-    let get_order = async () => {
-      products.length === 0 ? setProducts(await get_all_products()): null;
-      order >= 0.00 ? setOrder(await grand_total()) : null;
-    }
-    get_order()
+
+       
+  let get_all_products = async ()=>{
+    let {data,error} = await supabase.from("cosmetics").select();
+    setProducts(data)
+    return data
+}
+      
+  //   }
+  get_all_products()
   
   }, [])
 
+
+
+  // console.log( get_all_products());
+  
+
+console.log(products);
 
 
   return (

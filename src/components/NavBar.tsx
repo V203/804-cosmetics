@@ -10,7 +10,7 @@ let NavBar = () => {
         <>
             <div className="navBar">
                 <div className="navBarItem">
-                    <Link to={"/"} element={<Home />}>
+                    <Link to={"/"}  element={<Home />}>
                         <p>
                             HOME
                         </p>
