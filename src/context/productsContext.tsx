@@ -1,5 +1,5 @@
 import {createContext } from "react";
 
- let productsContext = createContext([])
+ let productsContext = createContext<any>([])
 
  export default productsContext;
