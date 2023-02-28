@@ -10,7 +10,8 @@ let NavBar = () => {
         <>
             <div className="navBar">
                 <div className="navBarItem">
-                    <Link to={"/"}  element={<Home />}>
+                    <Link to={"/"}  >
+                    {/* element={<Home />} */}
                         <p>
                             HOME
                         </p>
@@ -18,7 +19,8 @@ let NavBar = () => {
                 </div>
 
                 <div className="navBarItem">
-                    <Link to={"/about"} element={<AboutComponent />}>
+                    <Link to={"/about"} >
+                    {/* element={<AboutComponent />} */}
 
                         <p>
                             ABOUT US
@@ -28,7 +30,8 @@ let NavBar = () => {
 
                 </div>
                 <div className="navBarItem">
-                    <Link to={"/shop"} element={<ShopComponent/>}>
+                    <Link to={"/shop"}>
+                    {/* element={<ShopComponent/>} */}
                         <p>
                             SHOP
                         </p>
@@ -36,7 +39,8 @@ let NavBar = () => {
                     </Link>
                 </div>
                 <div className="navBarItem">
-                    <Link to={"/onlineStore"} element={<OnlineStoreComponent />}>
+                    <Link to={"/onlineStore"} >
+                    {/* element={<OnlineStoreComponent />} */}
                     
                     <p>
                         ONLINE STORE
