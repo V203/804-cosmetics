@@ -2,6 +2,7 @@ import React, { MouseEventHandler, useContext } from "react";
 import productsContext from "../context/productsContext"
 import supabase from "../Supabase/Supabase";;
 import Service from "../Service";
+import { ReactSVG } from "react-svg";
 
 let HomeComponent = () => {
     let {add,order,sub,setOrder,products,setProducts,grand_total,get_all_products} = useContext<any>(productsContext);
@@ -14,8 +15,8 @@ let HomeComponent = () => {
         // setOrder((prev:number)=> prev  += param)
         // console.log(order);
         await add(param);
-         setOrder( await grand_total());
-         setProducts( await get_all_products());
+         setOrder( order);
+         setProducts(products);
 
         // get_all_products().map((el:any)=> console.log(el))
     }
@@ -37,10 +38,12 @@ let HomeComponent = () => {
 
     return (
         <>
+                
 
             <div className="homeComponentContainer" >
             
-                {products.map((el: any, index: number) => <div className="itemCard" key={el.name}>{el.name} <img className="productImages" src="./" /> R{el.price} <br /> <input value="Subtract" onClick={(e)=> handleClickSub(el.name,e)} type="button" /> <input onClick={ (e)=> handleClickAdd(el.name,e)} type="button" value="Order" /></div>)}
+            
+                {products.map((el: any, index: number) => <div className="itemCard" key={el.name}> <h4 style={{textAlign:"center"}}>{el.name}</h4> <img  className="productImages" src="vite.svg" /> R{el.price} <br /> <input value="Subtract" onClick={(e)=> handleClickSub(el.name,e)} type="button" /> <input onClick={ (e)=> handleClickAdd(el.name,e)} type="button" value="Order" /></div>)}
             </div>
 
             {/* <div className="homeComponentContainer">

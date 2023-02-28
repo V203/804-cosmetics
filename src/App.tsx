@@ -11,6 +11,7 @@ import axios from "axios";
 import { IProducts } from "./Interfaces/IProducts";
 import supabase from "./Supabase/Supabase";
 
+
 function App() {
   let [products, setProducts] = useState<any>([]);
 
@@ -19,24 +20,29 @@ function App() {
 
   useEffect(() => {
 
-       
-  let get_all_products = async ()=>{
-    let {data,error} = await supabase.from("cosmetics").select();
-    setProducts(data)
-    return data
-}
-      
-  //   }
-  get_all_products()
-  
+
+    let get_all_products = async () => {
+      let { data, error } = await supabase.from("cosmetics").select();
+      setProducts(data)
+      return data
+    }
+
+    let grand_total = async () => {
+
+      let { data, error } = await supabase.rpc("grand_total");
+      setOrder(data)
+    };
+    grand_total()
+    get_all_products()
+
   }, [])
 
 
 
   // console.log( get_all_products());
-  
 
-console.log(products);
+
+  console.log(products);
 
 
   return (
