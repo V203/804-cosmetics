@@ -24,7 +24,7 @@ function App() {
 
     let get_all_products = async () => {
       let { data, error } = await supabase.from("cosmetics").select();
-      setProducts(data)
+      setProducts(data?.sort())
       return data
     }
 

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09, custom)"
+   sodipodi:docname="shopping bag"
+   inkscape:export-filename="shopping-bag.svg"
+   inkscape:export-xdpi="11.8"
+   inkscape:export-ydpi="11.8"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:lockguides="false"
+     inkscape:zoom="1.3556054"
+     inkscape:cx="245.27786"
+     inkscape:cy="449.6146"
+     inkscape:window-width="1304"
+     inkscape:window-height="704"
+     inkscape:window-x="62"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path2630"
+       style="fill:#e87b7b;fill-opacity:0.641429;stroke:#ffffff;stroke-width:0;stroke-opacity:0"
+       d="m 58.63363,101.35815 c -2.051257,2.9e-4 -4.136983,0.40715 -5.485453,1.1927 -2.323082,1.3533 -2.456607,3.83002 -2.405021,6.40167 l -8.116817,0.0269 -5.233273,23.24561 h 42.47286 l -7.073987,-23.34637 -6.588228,0.0222 c -0.08523,-2.69261 -0.33371,-5.28721 -2.75177,-6.57428 -1.225541,-0.65232 -3.008377,-0.96867 -4.818311,-0.96842 z m -0.07235,1.4087 a 5.8213953,6.7751403 0 0 1 5.794995,6.134 H 52.767839 a 5.8213953,6.7751403 0 0 1 5.793444,-6.134 z" />
+  </g>
+</svg>
