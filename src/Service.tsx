@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import productsContext from "./context/productsContext";
 import supabase from "./Supabase/Supabase";
 
 
@@ -18,11 +20,7 @@ import supabase from "./Supabase/Supabase";
 
      let get_all_products = async ()=>{
         let {data,error} = await supabase.from("cosmetics").select()
-        if(data){
-            return data
-        }else{
-            console.log(error);            
-        }
+      return data
 
     }
 
@@ -38,6 +36,9 @@ import supabase from "./Supabase/Supabase";
         return data ? data : 0.00
         
     };
+
+
+  
         
 
     export default get_all_products

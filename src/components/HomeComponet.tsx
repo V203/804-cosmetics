@@ -1,32 +1,16 @@
 import React, { MouseEventHandler, useContext } from "react";
 import productsContext from "../context/productsContext"
 import supabase from "../Supabase/Supabase";;
-import Service from "../Service";
+
 import { ReactSVG } from "react-svg";
 
 let HomeComponent = () => {
-    let {add,order,sub,setOrder,products,setProducts,grand_total,get_all_products} = useContext<any>(productsContext);
+    let {add,order,sub,setOrder,products,setProducts,grand_total,get_all_products,handleClickAdd, handleClickSub} = useContext<any>(productsContext);
     
 
     // let { products, setProducts, order, setOrder } = useContext<any>(productsContext);
 
-    let handleClickAdd = async (param: string, e:  React.MouseEvent<HTMLInputElement, MouseEvent>) => {
-        // e.preventDefault();
-        // setOrder((prev:number)=> prev  += param)
-        // console.log(order);
-        await add(param);
-         setOrder( order);
-         setProducts(products);
-
-        // get_all_products().map((el:any)=> console.log(el))
-    }
-
-    let handleClickSub = async (param: string, e:  React.MouseEvent<HTMLInputElement, MouseEvent>) => {
-
-        await sub(param);
-         setOrder( await grand_total());
-         setProducts( await get_all_products());
-    }
+    
 
 
     
@@ -43,7 +27,19 @@ let HomeComponent = () => {
             <div className="homeComponentContainer" >
             
             
-                {products.map((el: any, index: number) => <div className="itemCard" key={el.name}> <h4 style={{textAlign:"center"}}>{el.name}</h4> <img  className="productImages" src="vite.svg" /> R{el.price} <br /> <input value="Subtract" onClick={(e)=> handleClickSub(el.name,e)} type="button" /> <input onClick={ (e)=> handleClickAdd(el.name,e)} type="button" value="Order" /></div>)}
+                {products.map((el: any, index: number) =>
+                 <div className="itemCard" key={el.name}>
+                     <p style={{textAlign:"center",fontSize:17}}>{el.name.toUpperCase()}</p>
+                      <img  className="productImages" src={`/${el.img_url}.jpeg`} /> 
+
+                      
+                      
+                      
+                     Price:  R{el.price} <br /> <div className="flex-row">
+                     In cart : <img width={60} height={60} src={"/sub.svg"}  onClick={(e)=> handleClickSub(el.name,e)} /> {el.qty} <img width={60} height={60}  src={"/add.svg"}onClick={ (e)=> handleClickAdd(el.name,e)}  />
+                        </div> 
+                        
+                      </div>)}
             </div>
 
             {/* <div className="homeComponentContainer">
