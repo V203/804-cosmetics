@@ -27,8 +27,8 @@ let HomeComponent = () => {
             <div className="homeComponentContainer" >
             
             
-                {products.map((el: any, index: number) =>
-                 <div className="itemCard" key={el.name}>
+                {products.map((el: any) =>
+                 <div className="itemCard" key={el.id}>
                      <p style={{textAlign:"center",fontSize:17}}>{el.name.toUpperCase()}</p>
                       <img  className="productImages" src={`/${el.img_url}.jpeg`} /> 
 

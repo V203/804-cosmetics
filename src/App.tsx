@@ -23,8 +23,10 @@ function App() {
 
 
     let get_all_products = async () => {
-      let { data, error } = await supabase.from("cosmetics").select();
-      setProducts(data?.sort())
+      let { data, error } = await supabase.rpc("get_products");
+      console.log(data);
+      
+      setProducts(data)
       return data
     }
 
@@ -44,6 +46,8 @@ function App() {
 
       e.preventDefault();            
       let {data,error} = await supabase.rpc("add_product",{product_name:param})
+      
+      
        setOrder( await grand_total());
        setProducts(await get_all_products());
 
@@ -61,10 +65,6 @@ function App() {
 
 
 
-  console.log( order);
-
-
-  console.log(products);
 
 
   return (

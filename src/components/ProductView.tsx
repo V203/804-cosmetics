@@ -9,7 +9,7 @@ import supabase from "../Supabase/Supabase";
 let ProductView = (props:any) => {
     let { add, order, sub, setOrder, products, handleClickAdd, handleClickSub, setProducts, grand_total, get_all_products } = useContext<any>(productsContext);
     if (products.length !== 0) {
-        console.log(products[0].name);
+        // console.log(products[0].name);
 
     }
 
