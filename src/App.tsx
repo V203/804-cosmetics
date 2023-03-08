@@ -19,13 +19,14 @@ function App() {
 
   let [order, setOrder] = useState(0.00);
 
+  let [cart, setCart] = useState([]);
   useEffect(() => {
 
 
     let get_all_products = async () => {
       let { data, error } = await supabase.rpc("get_products");
-      console.log(data);
-      
+       
+
       setProducts(data)
       return data
     }
@@ -35,6 +36,17 @@ function App() {
       let { data, error } = await supabase.rpc("grand_total");
       setOrder(data)
     };
+
+    let getCart = async () => {
+      let { data, error } = await supabase.rpc("get_cart");
+      
+      
+        setCart(data)
+
+    }
+
+    getCart()
+
     grand_total()
     get_all_products()
 
@@ -42,24 +54,26 @@ function App() {
 
 
 
-    let handleClickAdd = async (param: string, e:  React.MouseEvent<HTMLInputElement, MouseEvent>) => {
+  let handleClickAdd = async (param: string, e:  React.MouseEvent<HTMLButtonElement>) => {
 
-      e.preventDefault();            
-      let {data,error} = await supabase.rpc("add_product",{product_name:param})
-      
-      
-       setOrder( await grand_total());
-       setProducts(await get_all_products());
+    e.preventDefault();
+    let { data, error } = await supabase.rpc("add_product", { product_name: param })
 
-      
+console.log("add clicked");
+
+    setOrder(await grand_total());
+    setProducts(await get_all_products());
+
+
   }
 
-   let handleClickSub = async (param: string, e:  React.MouseEvent<HTMLInputElement, MouseEvent>) => {
-      
-      e.preventDefault()
-      let {data,error} = await supabase.rpc("sub_product",{product_name:param})
-       setOrder( await grand_total());
-       setProducts( await get_all_products());
+  let handleClickSub = async (param: string, e:  React.MouseEvent<HTMLButtonElement>) => {
+
+    e.preventDefault()
+    let { data, error } = await supabase.rpc("sub_product", { product_name: param });
+    console.log("minus clicked");
+    setOrder(await grand_total());
+    setProducts(await get_all_products());
   }
 
 
@@ -70,7 +84,7 @@ function App() {
   return (
     <div className="App">
 
-      <productsContext.Provider value={{ products,handleClickAdd,handleClickSub, setProducts, order, setOrder, get_all_products, grand_total}}>
+      <productsContext.Provider value={{ cart,setCart,products, handleClickAdd, handleClickSub, setProducts, order, setOrder, get_all_products, grand_total }}>
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />

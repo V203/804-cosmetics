@@ -1,8 +1,10 @@
 import React, { MouseEventHandler, useContext } from "react";
 import productsContext from "../context/productsContext"
-import supabase from "../Supabase/Supabase";;
+import supabase from "../Supabase/Supabase";
+import BtnPM from "./BtnPM";  
 
 import { ReactSVG } from "react-svg";
+import { Button } from "@chakra-ui/react";
 
 let HomeComponent = () => {
     let {add,order,sub,setOrder,products,setProducts,grand_total,get_all_products,handleClickAdd, handleClickSub} = useContext<any>(productsContext);
@@ -27,19 +29,16 @@ let HomeComponent = () => {
             <div className="homeComponentContainer" >
             
             
-                {products.map((el: any) =>
-                 <div className="itemCard" key={el.id}>
+            {products.map((el: any) =>
+             <div className="itemCard" key={el.id}>
                      <p style={{textAlign:"center",fontSize:17}}>{el.name.toUpperCase()}</p>
                       <img  className="productImages" src={`/${el.img_url}.jpeg`} /> 
-
-                      
-                      
                       
                      Price:  R{el.price} <br /> <div className="flex-row">
-                     In cart : <img width={60} height={60} src={"/sub.svg"}  onClick={(e)=> handleClickSub(el.name,e)} /> {el.qty} <img width={60} height={60}  src={"/add.svg"}onClick={ (e)=> handleClickAdd(el.name,e)}  />
+                     In cart :<input className="btn" width={25} height={25} value={"-"} type={"button"} onClick={(e: any)=> handleClickSub(el.name,e)} />  {el.qty} <input  className="btn" width={25} height={25} value={"+"} onClick={ (e: any)=> handleClickAdd(el.name,e)}  type={"button"} />
                         </div> 
-                        
-                      </div>)}
+                        {/* <img width={60} height={60} src={"/sub.svg"}  onClick={(e)=> handleClickSub(el.name,e)} />             */}
+                        </div>)}
             </div>
 
             {/* <div className="homeComponentContainer">

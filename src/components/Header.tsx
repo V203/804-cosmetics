@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import productsContext from "../context/productsContext";
 import NavBar from "./NavBar";
+import Cart from "./Cart";
 
 let Header = () => {
 
@@ -25,8 +26,8 @@ let Header = () => {
                 
             </div>
             
-                <NavBar />
-
+                {/* <NavBar /> */}
+                
 
         </>
 
