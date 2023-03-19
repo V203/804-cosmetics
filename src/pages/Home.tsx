@@ -4,7 +4,7 @@ import NavBar from "../components/NavBar";
 import HomeComponent from "../components/HomeComponet";
 import ProductView from "../components/ProductView";
 import ProductViewPage from "./ProductViewPage";
-import Cart from "../components/Cart";
+import Cart from "../components/CartOverView";
 import BtnPM from "../components/BtnPM";
 
 

@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import OnlineStoreComponent from "../components/OnlineStoreComponent";
-import { Plus} from "../Icons/Plus" ;
+
 
 
 let OnlineStore = () => {
@@ -9,7 +9,7 @@ let OnlineStore = () => {
         <>
             <Header />
             <OnlineStoreComponent />
-            <Plus />
+            {/* <Plus /> */}
         </>
     )
 }

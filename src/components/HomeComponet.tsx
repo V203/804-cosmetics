@@ -1,45 +1,36 @@
 import React, { MouseEventHandler, useContext } from "react";
 import productsContext from "../context/productsContext"
-import supabase from "../Supabase/Supabase";
-import BtnPM from "./BtnPM";  
-
-import { ReactSVG } from "react-svg";
-import { Button } from "@chakra-ui/react";
-
+import ViewItem from "./ViewItem";
+import CartImg from "../CartImg";
+import CartOverView from "./CartOverView";
 let HomeComponent = () => {
-    let {add,order,sub,setOrder,products,setProducts,grand_total,get_all_products,handleClickAdd, handleClickSub} = useContext<any>(productsContext);
-    
+    let { add, order, sub, setOrder,cart, products, setProducts, grand_total, get_all_products, viewBool, setViewBool,handleClickView, handleClickAdd, handleClickSub } = useContext<any>(productsContext);
 
-    // let { products, setProducts, order, setOrder } = useContext<any>(productsContext);
-
-    
-
-
-    
-
-
-    // let insertToDatabase = async (name:string,price:number)=>{
-    //     let {data,error} = await supabase.from("cosmetics").insert({name:name,price:price});
-    // }
 
     return (
         <>
-                
 
+
+            
+                <ViewItem />
+                <CartOverView />
             <div className="homeComponentContainer" >
-            
-            
-            {products.map((el: any) =>
-             <div className="itemCard" key={el.id}>
-                     <p style={{textAlign:"center",fontSize:17}}>{el.name.toUpperCase()}</p>
-                      <img  className="productImages" src={`/${el.img_url}.jpeg`} /> 
-                      
-                     Price:  R{el.price} <br /> <div className="flex-row">
-                     In cart :<input className="btn" width={25} height={25} value={"-"} type={"button"} onClick={(e: any)=> handleClickSub(el.name,e)} />  {el.qty} <input  className="btn" width={25} height={25} value={"+"} onClick={ (e: any)=> handleClickAdd(el.name,e)}  type={"button"} />
-                        </div> 
-                        {/* <img width={60} height={60} src={"/sub.svg"}  onClick={(e)=> handleClickSub(el.name,e)} />             */}
-                        </div>)}
+
+                {products.map((el: any) =>
+                    <div className="itemCard" key={el.id}>
+                        <div id="subHeaderDiv" style={{ paddingTop: 0 }}>
+                            <h5 style={{ textAlign: "center", fontSize: 12, color: "white", fontFamily: "laila", top: "0px" }}>{el.name.toUpperCase()}</h5>
+                        </div>
+                        <img className="productImages" src={`/${el.img_url}.jpeg`} />
+
+                        Price: R{el.price} <br />
+                        <div className="flex-row">
+                            In cart :<input className="btn" width={25} height={25} value={"-"} type={"button"} onClick={(e: any) => handleClickSub(el.name, e)} />  {el.qty} <input className="btn" width={25} height={25} value={"+"} onClick={(e: any) => handleClickAdd(el.name, e)} type={"button"} />
+                        </div>
+                        <input style={{color:"white"}} className="btn-primary" width={"100%"} height={35} value={"View Cart"} type={"button"} onClick={(e: any) => handleClickView(el.name, e)} />
+                    </div>)}
             </div>
+            
 
             {/* <div className="homeComponentContainer">
 
