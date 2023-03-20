@@ -21,7 +21,7 @@ let HomeComponent = () => {
                         <div id="subHeaderDiv" style={{ paddingTop: 0 }}>
                             <h5 style={{ textAlign: "center", fontSize: 12, color: "white", fontFamily: "laila", top: "0px" }}>{el.name.toUpperCase()}</h5>
                         </div>
-                        <img className="productImages" src={`/${el.img_url}.jpeg`} />
+                        <img className="productImages" src={`${el.img_url}.jpeg`} />
 
                         Price: R{el.price} <br />
                         <div className="flex-row">
