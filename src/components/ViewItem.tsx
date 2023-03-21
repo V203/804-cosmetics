@@ -25,7 +25,7 @@ let ViewItem = (props: any) => {
                             <div className="gridItem">
                                 <h4>{el.name}</h4>
 
-                                <img width={200} height={100} src={`/${el.img_url}.jpeg`} />
+                                <img width={200} height={100} src={`${el.img_url}.jpeg`} />
 
                                 <br />
                                 <p>{"Price: R " + el.price}<hr /></p>
