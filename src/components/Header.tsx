@@ -25,7 +25,7 @@ let Header = () => {
                 <div className="total">
 
                 </div>
-                {<p>Total  R {order}</p>} <img onClick={() => setCartOverViewBool(!cartOverViewBool)} style={{ float: "right" }} width={60} height={60} src={"/cart.svg"} />
+                {<p>Total  R {order}</p>} <img onClick={() => setCartOverViewBool(!cartOverViewBool)} style={{ float: "right" }} width={60} height={60} src={"cart.svg"} />
                 < input value={"Login"} type={"button"} onClick={() => navigate("/Login")} />
                 <input value={"Register"} type={"button"} onClick={() => navigate("/Register")} />
 
