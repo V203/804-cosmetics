@@ -22,6 +22,7 @@ function App() {
   let [viewBool, setViewBool] = useState<boolean | any>(false);
   let [cart, setCart] = useState<any>([]);
   let [cartOverViewBool, setCartOverViewBool] = useState<boolean>(false);
+  let [name,setName] = useState<string | any>("");
 
 
   let getCart = async () => {
@@ -30,6 +31,17 @@ function App() {
     setCart(data)
     return data
   }
+
+
+
+  let getTheUser =async ()=>{
+    let {data, error} =  await supabase.auth.getUser();
+    console.log(data.user?.user_metadata.first_name);
+    setName(data.user?.user_metadata.first_name)
+    return data.user?.user_metadata.first_name
+    
+    }
+    getTheUser()
 
   useEffect(() => {
 
@@ -111,7 +123,7 @@ function App() {
       <productsContext.Provider value={{
         singleItem, setSingleItem, viewBool, setViewBool, handleClickView, cart,
         setCart, products, handleClickAdd, handleClickSub, setProducts, order, 
-        setOrder, get_all_products, grand_total,cartOverViewBool,setCartOverViewBool
+        setOrder, get_all_products, grand_total,cartOverViewBool,setCartOverViewBool,getTheUser,name
       }}>
         <Router>
           <Routes>

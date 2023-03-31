@@ -10,6 +10,7 @@ let Checkout = () => {
         <>
 
         <Header />
+        <div style={{height:80}}></div>
         <CheckoutComp />
         </>)
 }

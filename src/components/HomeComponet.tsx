@@ -21,13 +21,21 @@ let HomeComponent = () => {
                         <div id="subHeaderDiv" style={{ paddingTop: 0 }}>
                             <h5 style={{ textAlign: "center", fontSize: 12, color: "white", fontFamily: "laila", top: "0px" }}>{el.name.toUpperCase()}</h5>
                         </div>
-                        <img className="productImages" src={`${el.img_url}.jpeg`} />
+                        <div>
 
+                        <img className="productImages" src={`${el.img_url}.jpeg`} />
+                        </div>
+                        <div>
+
+
+                        </div>
                         Price: R{el.price} <br />
                         <div className="flex-row">
                             In cart :<input className="btn" width={25} height={25} value={"-"} type={"button"} onClick={(e: any) => handleClickSub(el.name, e)} />  {el.qty} <input className="btn" width={25} height={25} value={"+"} onClick={(e: any) => handleClickAdd(el.name, e)} type={"button"} />
                         </div>
                         <input style={{color:"white"}} className="btn-primary" width={"100%"} height={35} value={"View Cart"} type={"button"} onClick={(e: any) => handleClickView(el.name, e)} />
+
+
                     </div>)}
             </div>
             
