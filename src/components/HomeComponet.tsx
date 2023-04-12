@@ -3,42 +3,124 @@ import productsContext from "../context/productsContext"
 import ViewItem from "./ViewItem";
 import CartImg from "../CartImg";
 import CartOverView from "./CartOverView";
+import { InfoIcon } from '@chakra-ui/icons'
+import { Box, Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, Container, Divider, Heading, Image, SimpleGrid, Spacer, Stack, Text } from "@chakra-ui/react";
+import { themeStyles } from "../themeStyles/ThemeStyles";
 let HomeComponent = () => {
-    let { add, order, sub, setOrder,cart, products, setProducts, grand_total, get_all_products, viewBool, setViewBool,handleClickView, handleClickAdd, handleClickSub } = useContext<any>(productsContext);
+    let { add, order, sub, setOrder, cart, products, setProducts, grand_total, get_all_products, viewBool, setViewBool, handleClickView, handleClickAdd, handleClickSub } = useContext<any>(productsContext);
 
 
     return (
         <>
 
 
-            
-                <ViewItem />
-                <CartOverView />
-            <div className="homeComponentContainer" >
 
-                {products.map((el: any) =>
-                    <div className="itemCard" key={el.id}>
-                        <div id="subHeaderDiv" style={{ paddingTop: 0 }}>
+            <ViewItem />
+            <CartOverView />
+            <Divider />
+            <div style={{ height: 13 }}></div>
+            <Box>
+
+
+
+                <SimpleGrid zIndex={0} minChildWidth="270px" spacing="10" p="5" spacingX='30px' spacingY='20px' >
+
+                    {products && products.map((el: any) =>
+                        <Card key={el.id} boxShadow={themeStyles.boxShadow}  >
+                            <CardHeader minH={49.45} p={2} bgColor={themeStyles.btnColor} color={themeStyles.color} >
+                                <Heading maxH={73} size='xs' textTransform='uppercase'>{el.name}</Heading>
+                            </CardHeader>
+                            <CardBody p="0" m={0}>
+                                <Stack m='0'>
+
+                                    <Image src={`${el.img_url}.jpeg`} alt='Green double couch with wooden legs' m={0} p={0} width="100%" maxH="180" />
+                                    <Text color='blue.600' fontSize='xl'>
+                                        <Divider color={themeStyles.btnColor} />
+                                        R{el.price}
+                                    </Text>
+                                </Stack>
+
+                            </CardBody>
+                            <Divider color={themeStyles.btnColor} />
+                            <CardFooter>
+                                <ButtonGroup spacing='1'>
+                                    <Button onClick={(e) => handleClickAdd(el.name, e)} color={themeStyles.color} bgColor={themeStyles.btnColor}>
+                                        Add
+                                    </Button>
+                                    <Spacer />
+                                    <Button onClick={(e) => handleClickSub(el.name, e)} color={themeStyles.color} bgColor={themeStyles.btnColor}>
+                                        Remove
+                                    </Button>
+                                </ButtonGroup>
+                                <Text>{el.qty}</Text>
+                            </CardFooter>
+
+                            {/* <div id="subHeaderDiv">
                             <h5 style={{ textAlign: "center", fontSize: 12, color: "white", fontFamily: "laila", top: "0px" }}>{el.name.toUpperCase()}</h5>
                         </div>
                         <div>
 
-                        <img className="productImages" src={`${el.img_url}.jpeg`} />
+                            <img className="productImages" src={`${el.img_url}.jpeg`} />
                         </div>
                         <div>
 
 
                         </div>
-                        Price: R{el.price} <br />
-                        <div className="flex-row">
-                            In cart :<input className="btn" width={25} height={25} value={"-"} type={"button"} onClick={(e: any) => handleClickSub(el.name, e)} />  {el.qty} <input className="btn" width={25} height={25} value={"+"} onClick={(e: any) => handleClickAdd(el.name, e)} type={"button"} />
+                        <table >
+                            <tr style={{ borderStyle: "none" }}>
+                                <th>
+                                    <td>
+                                        Price
+                                    </td>
+                                </th>
+                                <th>
+                                    <td>
+                                        QTY
+                                    </td>
+                                </th>
+                                <th>
+                                    <td>
+                                        Sub-total
+                                    </td>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {el.price}
+                                </td>
+                                <td>
+                                    <div className="qtyOutline">
+
+                                        <div className="qtyBtnCheckout" onClick={(e) => handleClickSub(el.name, e)}>-</div>
+                                        <span className="valueOutQty">
+                                            {el.qty}
+                                        </span>
+                                        <div className="qtyBtnCheckout" onClick={(e) => handleClickAdd(el.name, e)}>+</div>
+
+                                    </div>
+                                </td>
+                                <td>
+                                    {el.grand_total}
+
+                                </td>
+                            </tr>
+
+
+                        </table> */}
+                            {/* 
+                        <div className="grid-template">
+                            <span className="flex-row"><p>Price : R<strong style={{ color: "darkgreen" }}> {el.price}</strong> </p></span>
                         </div>
-                        <input style={{color:"white"}} className="btn-primary" width={"100%"} height={35} value={"View Cart"} type={"button"} onClick={(e: any) => handleClickView(el.name, e)} />
+
+                        <div className="flex-row">
 
 
-                    </div>)}
-            </div>
-            
+                        </div>
+                        <input style={{ color: "white" }} className="btn-primary" width={"100%"} height={25} value={"View Item"} type={"button"} onClick={(e: any) => handleClickView(el.name, e)} /> */}
+
+                        </Card>)}
+                </SimpleGrid>
+            </Box>
 
             {/* <div className="homeComponentContainer">
 

@@ -1,67 +1,65 @@
+import { themeStyles } from "../themeStyles/ThemeStyles";
 import Header from "../components/Header";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import supabase from "../Supabase/Supabase";
 import { useNavigate } from "react-router-dom"
+import { Button, Flex, Spacer, Text } from "@chakra-ui/react";
+import productsContext from "../context/productsContext";
 
 
 let Login = () => {
     let navigate = useNavigate();
+    let { user, setUser } = useContext(productsContext);
     let [formData, setFormData] = useState<string | any>({ email: "", password: "" });
 
     let handleChange = (evt: any) => {
-        
+
         let value = evt.target.value;
         setFormData({
             ...formData,
             [evt.target.id]: value
         })
         console.log(formData);
-        
+
 
 
 
     }
 
-    
+
     let SignIn = async () => {
-        // formData.email
-        // formData.password
+
+
         const { data, error } = await supabase.auth.signInWithPassword({
-            email: "vuyisamr203@gmail.com",
-            password:"123456"
-      
+            email: formData.email,
+            password: formData.password
+
         })
-        console.log(formData);
-        console.log(data);
-        
-        console.log(error);
-        
 
+
+        navigate("/")
     }
-    
-    
-    let handleSubmit = async ()=> {
+
+
+    let handleSubmit = async () => {
         await SignIn();
+        user && user.id !== "" ? setUser(user) : console.log(user);
+        console.log(user);
+
+        window.location.reload();
 
     }
 
-    let getUserSession = async () =>{
-        let {data,error} = await supabase.auth.getSession();
-        console.log(error);
-        console.log(data);
-        
-        
-        
-        // console.log(data.session?.user.id);
-        
-
+    let getUserSession = async () => {
+        let { data, error } = await supabase.auth.getSession();
+        // console.log(data);
     }
 
     getUserSession();
 
 
 
-    
+
 
     return (
         <>
@@ -69,7 +67,7 @@ let Login = () => {
             <div className="regLog">
 
                 <div className="RegisterLoginCard">
-                    <div className="RegLogBanner" style={{ width: "100%" }}>
+                    <div className="RegLogBanner" style={{ maxWidth: "100%" }}>
 
                         <p>
                             Login
@@ -79,8 +77,21 @@ let Login = () => {
                     <span className="inputSpan">Email: <input required onChange={handleChange} className="sendToRight" placeholder="JohnDoe@gmail.com" id="email" type={"email"} /> </span>
                     <span className="inputSpan">Password: <input required onChange={handleChange} className="sendToRight" placeholder="#$%#2390" id="password" type={"password"} /> </span>
                     <span>
-                        <input onClick={() => handleSubmit()} className="sendToRight btn-primary" type={"submit"} />
-                        <input onClick={() => navigate("/")} value={"Cancel"} className="sendToRight btn-primary" type={"button"} />
+                        <Flex align={"center"} justifyContent="space-around" justify={"center"}>
+
+                            <Button onClick={() => handleSubmit()} bgColor={themeStyles.btnColor} color={themeStyles.color}>
+
+                                <Text>Submit</Text>
+                            </Button>
+                            {/* <Spacer /> */}
+
+                            <Button onClick={() => navigate("/")} bgColor={themeStyles.btnColor} color={themeStyles.color}>
+
+                                <Text>Cancel</Text>
+                            </Button>
+
+
+                        </Flex>
                     </span>
 
                 </div>
