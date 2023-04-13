@@ -54,7 +54,7 @@ function App() {
 
       if (error?.status !== 401 && data.user !== null ) {
 
-        let { id, email,user_metadata:{first_name, surname, city, zipCode, street, province} } = data.user;
+        let { id,user_metadata:{first_name, surname, email, city, zipCode, street, province} } = data.user;
         console.log(email);
         
         setUser({...user, id:id,email:email,first_name:first_name,city:city,zipCode:zipCode,street:street,province:province,surname:surname});
@@ -156,6 +156,7 @@ function App() {
 
 
 
+console.log(user);
 
 
 
