@@ -7,7 +7,7 @@
 }
 
 .header {
-  
+
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -99,7 +99,7 @@
 
 }
 
-.grid-template{
+.grid-template {
   display: grid;
   grid-template-rows: 30px 30px;
 }
@@ -145,7 +145,7 @@
 #subHeaderDiv {
   width: 100%;
 
-  
+
   background-color: #00987a;
   color: white;
   margin-top: 0;
@@ -208,7 +208,7 @@
   min-width: 100%;
   min-height: 100%;
   background-color: rgba(0, 0, 0, 0.318);
-
+  z-index: 200;
 
 }
 
@@ -274,7 +274,7 @@ h4 {
   flex-flow: row;
   width: fit-content;
   height: fit-content;
-  
+
 }
 
 
@@ -581,12 +581,12 @@ tr {
 }
 
 body {
-  
-  
+
+
   background-image: url("804-bg.png");
-  
+
   background-attachment: fixed;
-    height: 100vh;
+  height: 100vh;
 
 
 

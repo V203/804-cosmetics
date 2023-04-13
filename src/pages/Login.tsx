@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import { useContext, useState } from "react";
 import supabase from "../Supabase/Supabase";
 import { useNavigate } from "react-router-dom"
-import { Button, Flex, Spacer, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, FormControl, FormLabel, Heading, Input, Spacer, Text } from "@chakra-ui/react";
 import productsContext from "../context/productsContext";
 
 
@@ -64,38 +64,42 @@ let Login = () => {
     return (
         <>
             <Header />
-            <div className="regLog">
+            <Flex justifyContent={"center"} alignItems={"center"} mt={20}>
 
-                <div className="RegisterLoginCard">
-                    <div className="RegLogBanner" style={{ maxWidth: "100%" }}>
 
-                        <p>
+
+                <Box maxHeight={"fit-content"}>
+                    <Heading bgColor={themeStyles.btnColor} textAlign="center" color={"white"} style={{ maxWidth: "100%" }}>
+
+                        <Text>
                             Login
-                        </p>
+                        </Text>
 
-                    </div>
-                    <span className="inputSpan">Email: <input required onChange={handleChange} className="sendToRight" placeholder="JohnDoe@gmail.com" id="email" type={"email"} /> </span>
-                    <span className="inputSpan">Password: <input required onChange={handleChange} className="sendToRight" placeholder="#$%#2390" id="password" type={"password"} /> </span>
-                    <span>
-                        <Flex align={"center"} justifyContent="space-around" justify={"center"}>
+                    </Heading>
 
-                            <Button onClick={() => handleSubmit()} bgColor={themeStyles.btnColor} color={themeStyles.color}>
+                    <FormControl isRequired justifyContent="space-around" gap={2}>
+                        <FormLabel>Email: </FormLabel>
+                        <Input placeholder='JohnD@gmail.com' id="email" onChange={handleChange} />
+                        <FormLabel>Password: </FormLabel>
+                        <Input placeholder='00921#@$' id="password" onChange={handleChange} type={"password"}/>
 
-                                <Text>Submit</Text>
-                            </Button>
-                            {/* <Spacer /> */}
+                        <Button  m={4}
+                            
+                            
+                            type='submit' onClick={() => handleSubmit()} bgColor={themeStyles.btnColor} color={themeStyles.color}>
+                            <Text>Submit</Text>
+                        </Button>
+                       
+                        <Button onClick={() => navigate("/")} bgColor={themeStyles.btnColor} color={themeStyles.color}>
+                            <Text>Cancel</Text>
+                        </Button>
 
-                            <Button onClick={() => navigate("/")} bgColor={themeStyles.btnColor} color={themeStyles.color}>
-
-                                <Text>Cancel</Text>
-                            </Button>
+                    </FormControl>
 
 
-                        </Flex>
-                    </span>
+                </Box>
 
-                </div>
-            </div>
+            </Flex>
         </>
     )
 
@@ -104,3 +108,19 @@ let Login = () => {
 };
 
 export default Login;
+                    // <span className="inputSpan">Email: <Input required onChange={handleChange} className="sendToRight" placeholder="JohnDoe@gmail.com" id="email" type={"email"} /> </span>
+                    // <span className="inputSpan">Password: <Input required onChange={handleChange} className="sendToRight" placeholder="#$%#2390" id="password" type={"password"} /> </span>
+                    // <span>
+                    //     <Flex align={"center"} justifyContent="space-around" justify={"center"}>
+
+                    //         <Button onClick={() => handleSubmit()} bgColor={themeStyles.btnColor} color={themeStyles.color}>
+
+                    //             <Text>Submit</Text>
+                    //         </Button>
+                    //         <Spacer />
+
+
+
+
+                    //     </Flex>
+                    // </span>

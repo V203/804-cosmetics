@@ -1,14 +1,21 @@
 import { useContext, useState } from "react";
 import productsContext from "../context/productsContext";
+import { IProducts } from "../Interfaces/IProducts";
+import CardSm from "./Cardsm";
 
-let ViewItem = (props: any) => {
+let ViewItem = (props:any) => {
     
 
-    let { viewBool, setViewBool, singleItem,handleClickAdd,handleClickSub } = useContext<boolean | any>(productsContext);
+    let { viewBool, setViewBool, singleItem,handleClickAdd,handleClickSub,products } = useContext< any>(productsContext);
+    // console.log(products.find((el:IProducts)=> el.name === el.name));
+
+    
+    
     return (
 
         <>
             <div className="overlay" style={{ display: viewBool ? "grid" : "none" }}>
+            
 
 
                 <div className="xcloseBtn" onClick={() => setViewBool(false)}>
@@ -18,30 +25,9 @@ let ViewItem = (props: any) => {
                 </div>
                 <div className="cartDiv">
                     
-                    {singleItem.length !== 0 ? singleItem.map((el: any) => {
+                    {products.length !== 0 ? products.map((el: IProducts) => {
 
-
-                        return <>
-                            <div className="gridItem">
-                                <h4>{el.name}</h4>
-
-                                <img width={200} height={100} src={`${el.img_url}.jpeg`} />
-
-                                <br />
-                                <p>{"Price: R " + el.price}<hr /></p>
-                                
-                                <div className="flex-row">
-                                In cart :<input className="btn" width={25} height={25} value={"-"} type={"button"} onClick={(e: any) => handleClickSub(el.name, e)} />  {el.qty} <input className="btn" width={25} height={25} value={"+"} onClick={(e: any) => handleClickAdd(el.name, e)} type={"button"} />
-                                </div>
-                                <br />
-
-                            </div>
-                        </>
-
-
-
-
-
+                      return   <CardSm id={el.id} img_url={el.img_url} qty={el.qty} name={el.name} price={el.price}  grand_total={el.grand_total} key={el.id}/>
                     }) : "Loading..."}
 
 
