@@ -39,10 +39,10 @@ let CardSm = (props: IProducts) => {
             <CardFooter >
                 <Flex alignItems='center' gap='2'>
     
-                    <Button onClick={()=>handleClickSub}  colorScheme={themeStyles.btnColor} outlineColor={themeStyles.btnColor} color={themeStyles.btnColor}>
+                    <Button onClick={(e)=>handleClickSub(props.name,e)}  colorScheme={themeStyles.btnColor} outlineColor={themeStyles.btnColor} color={themeStyles.btnColor}>
                         <Text fontSize={"1.5em"}>-</Text>
                     </Button>
-                    <Button onClick={()=> handleClickAdd} outlineColor={themeStyles.btnColor} colorScheme={themeStyles.btnColor} color={themeStyles.btnColor}>
+                    <Button onClick={(e)=> handleClickAdd(props.name,e)} outlineColor={themeStyles.btnColor} colorScheme={themeStyles.btnColor} color={themeStyles.btnColor}>
                         <Text fontSize={"1.5em"}>+</Text>
                     </Button>
     

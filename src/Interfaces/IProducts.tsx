@@ -13,3 +13,12 @@ export interface IUserInfo {
     zipCode:string,street:string
 
 }
+
+
+export interface IProductsObj {
+    id:number,name: string,
+    price: number,qty: number ,
+    grand_total: number,
+    img_url:string
+
+}

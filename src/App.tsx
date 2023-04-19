@@ -5,7 +5,7 @@ import OnlineStore from "./pages/OnlineStore";
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import productsContext from "./context/productsContext";
 import Shop from "./pages/Shop";
-import get_all_products, { grand_total } from "./Service";
+import Services from "./Service";
 import './App.css';
 import supabase from "./Supabase/Supabase";
 import Checkout from "./pages/Checkout";
@@ -14,11 +14,15 @@ import Register from "./pages/Register";
 import { ChakraProvider, useDisclosure } from '@chakra-ui/react';
 import { IProducts, IUserInfo } from "./Interfaces/IProducts";
 import { User } from "@supabase/supabase-js";
+import { productsObj } from "./product";
 
 
 
 function App() {
 
+  let services = Services();
+
+  console.log(services.getProducts());
 
   let [products, setProducts] = useState<Array<IProducts> | any>([]);
   let [order, setOrder] = useState<number | any>(0.00);
@@ -26,19 +30,7 @@ function App() {
   let [cart, setCart] = useState<any>([]);
   let [cartOverViewBool, setCartOverViewBool] = useState<boolean>(false);
   let [name, setName] = useState<string | any>("");
-  
-
-  let [user, setUser] = useState<IUserInfo>({id: "", first_name: "",province: "", city: "", email: "", street: "", surname: "", zipCode: ""})
-
-
-
-
-  let getCart = async () => {
-    let { data, error } = await supabase.rpc("get_cart");
-
-    setCart(data)
-    return data
-  }
+  let [user, setUser] = useState<IUserInfo>({ id: "", first_name: "", province: "", city: "", email: "", street: "", surname: "", zipCode: "" });
 
   useEffect(() => {
 
@@ -46,117 +38,57 @@ function App() {
 
     let getTheUser = async () => {
       let { data, error } = await supabase.auth.getUser();
+      if (error?.status !== 401 && data.user !== null) {
+        let { id, user_metadata: { first_name, surname, email, city, zipCode, street, province } } = data.user;
+        setUser({ ...user, id: id, email: email, first_name: first_name, city: city, zipCode: zipCode, street: street, province: province, surname: surname });
 
-
-
-      
-
-
-      if (error?.status !== 401 && data.user !== null ) {
-
-        let { id,user_metadata:{first_name, surname, email, city, zipCode, street, province} } = data.user;
-        console.log(email);
-        
-        setUser({...user, id:id,email:email,first_name:first_name,city:city,zipCode:zipCode,street:street,province:province,surname:surname});
-        console.log(user);
-        
       } else {
         console.log(error);
-
       }
-
     }
-
 
     getTheUser()
   }, [])
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   useEffect(() => {
-
-
-
-    let get_all_products = async () => {
-      let { data, error } = await supabase.rpc("get_products");
-
-
-      setProducts(data)
-      return data
-    }
-
-    let grand_total = async () => {
-
-      let { data, error } = await supabase.rpc("grand_total");
-      setOrder(data)
-    };
-
-
-    getCart()
-
-    grand_total()
-    get_all_products()
-
+    setProducts(services.getProducts())
+    setOrder(services.getGrandTotal())
+    setCart(services.getCart())
   }, [])
+  
+
 
   let [singleItem, setSingleItem] = useState<any>([])
 
   let handleClickAdd = async (param: string, e: React.MouseEvent<HTMLButtonElement>) => {
-
     e.preventDefault();
-    let { data, error } = await supabase.rpc("add_product", { product_name: param })
-
-
-    await getCart()
-    setOrder(await grand_total());
-    setProducts(await get_all_products());
-    setCart(await getCart())
-
-
-    // setCart(cart)
-
-
+    let { data, error } = await supabase.rpc("add_product", { product_name: param });
+    services.add(param);
+    setOrder(services.getGrandTotal());
+    setCart(services.getCart());
   }
 
   let handleClickSub = async (param: string, e: React.MouseEvent<HTMLButtonElement>) => {
-
     e.preventDefault()
-    let { data, error } = await supabase.rpc("sub_product", { product_name: param });
-
-    setOrder(await grand_total());
-    setProducts(await get_all_products());
-    setCart(await getCart())
-
+    services.sub(param);
+    setCart(services.getCart());
+    setOrder(services.getGrandTotal());
   }
 
 
   let handleClickView = async (param: string, e: React.MouseEvent<HTMLButtonElement>) => {
-
     e.preventDefault();
-    setViewBool(!viewBool)
+    setViewBool(!viewBool);
     let { data, error } = await supabase.rpc("select_single", { param: param });
-
-
     setSingleItem(data);
 
-    return data
+    return data;
   }
 
 
 
-console.log(user);
+  console.log(products);
+
 
 
 
@@ -168,7 +100,7 @@ console.log(user);
         <productsContext.Provider value={{
           singleItem, setSingleItem, viewBool, setViewBool, handleClickView, cart,
           setCart, products, handleClickAdd, handleClickSub, setProducts, order,
-          setOrder, get_all_products, grand_total, cartOverViewBool, setCartOverViewBool, name, user, setUser
+          setOrder, cartOverViewBool, setCartOverViewBool, name, user, setUser, services
         }}>
           <Router>
             <Routes>

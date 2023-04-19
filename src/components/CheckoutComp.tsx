@@ -9,7 +9,7 @@ import ViewItem from "./ViewItem";
 
 
 let CheckoutComp = () => {
-    let { cart, handleClickAdd, handleClickSub, order, viewBool, setViewBool,products } = useContext<any>(productsContext);
+    let { cart, handleClickAdd, handleClickSub, order, viewBool, setViewBool,products,services } = useContext<any>(productsContext);
     
     let viewItemHandle = (product:IProducts) => {
     console.log(product);
@@ -24,6 +24,9 @@ let CheckoutComp = () => {
         sum += a.qty
         return sum
     })
+
+    console.log(cart);
+    
 
     {/* <input className="btn" width={25} height={25} value={"-"} type={"button"} onClick={(e: any) => handleClickSub(el.name, e)} />  {el.qty} <input className="btn" width={25} height={25} value={"+"} onClick={(e: any) => handleClickAdd(el.name, e)} type={"button"} /> */ }
     return (
@@ -75,7 +78,7 @@ let CheckoutComp = () => {
 
                         </Thead>
                         <Tbody>
-                            {cart && cart.map((el: IProducts) => (<Tr> <Td>{el.name}</Td> <Td><Button onClick={e => viewItemHandle(el)} colorScheme={"blue"}>View Product</Button></Td><Td><Button colorScheme={"pink"}>Edit</Button></Td>  <Td>{el.price}</Td> <Td>{el.qty}</Td> <Td>{el.grand_total}</Td> </Tr>))
+                            {cart && cart.map((el: IProducts | any) => (<Tr> <Td>{el.name}</Td> <Td><Button onClick={e => viewItemHandle(el)} colorScheme={"blue"}>View Product</Button></Td><Td><Button colorScheme={"pink"}>Edit</Button></Td>  <Td>R {el.price}</Td> <Td>{el.qty}</Td> <Td>R{el.grand_total()}</Td> </Tr>))
 
 
                             }

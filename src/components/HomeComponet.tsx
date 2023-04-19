@@ -7,7 +7,7 @@ import { InfoIcon } from '@chakra-ui/icons'
 import { Box, Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, Container, Divider, Heading, Image, SimpleGrid, Spacer, Stack, Text } from "@chakra-ui/react";
 import { themeStyles } from "../themeStyles/ThemeStyles";
 let HomeComponent = () => {
-    let { add, order, sub, setOrder, cart, products, setProducts, grand_total, get_all_products, viewBool, setViewBool, handleClickView, handleClickAdd, handleClickSub } = useContext<any>(productsContext);
+    let { services,add, order, sub, setOrder, cart, products, setProducts, grand_total, get_all_products, viewBool, setViewBool, handleClickView, handleClickAdd, handleClickSub } = useContext<any>(productsContext);
 
 
     return (
@@ -16,7 +16,7 @@ let HomeComponent = () => {
 
 
             <ViewItem />
-            <CartOverView />
+            {/* <CartOverView /> */}
             <Divider />
             <div style={{ height: 13 }}></div>
             <Box>
@@ -25,7 +25,7 @@ let HomeComponent = () => {
 
                 <SimpleGrid zIndex={0} minChildWidth="270px" spacing="10" p="5" spacingX='30px' spacingY='20px' >
 
-                    {products && products.map((el: any) =>
+                    {services.getProducts()  && services.getProducts().map((el: any) =>
                         <Card key={el.id} boxShadow={themeStyles.boxShadow}  >
                             <CardHeader minH={49.45} p={2} bgColor={themeStyles.btnColor} color={themeStyles.color} >
                                 <Heading maxH={73} size='xs' textTransform='uppercase'>{el.name}</Heading>

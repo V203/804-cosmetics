@@ -108,6 +108,8 @@ let Login = () => {
 };
 
 export default Login;
+
+
                     // <span className="inputSpan">Email: <Input required onChange={handleChange} className="sendToRight" placeholder="JohnDoe@gmail.com" id="email" type={"email"} /> </span>
                     // <span className="inputSpan">Password: <Input required onChange={handleChange} className="sendToRight" placeholder="#$%#2390" id="password" type={"password"} /> </span>
                     // <span>

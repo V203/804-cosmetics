@@ -38,7 +38,7 @@ let  handleClick = () => navigate("/Checkout")
     return (
 
         <>
-            <Button colorScheme='green' onClick={onOpen} gap={2} alignContent={"center"} justifyContent={"center"}>
+            <Button colorScheme='green' onClick={onOpen} size={'xs'} gap={2} alignContent={"center"} justifyContent={"center"}>
                 <BsCartPlusFill size={"xs"} />
                 Cart
             </Button>
@@ -52,7 +52,7 @@ let  handleClick = () => navigate("/Checkout")
                          </DrawerHeader>
                     <DrawerBody>
 
-                        {cart && cart.map((el: IProducts) => <CardSm name={el.name} price={el.price} qty={el.qty} grand_total={el.grand_total} id={el.id} img_url={el.img_url}/>
+                        {cart && cart.map((el: IProducts | any) => <CardSm name={el.name} price={el.price} qty={el.qty} grand_total={el.grand_total()} id={el.id} img_url={el.img_url}/>
 
                         
                         )}
