@@ -17,7 +17,7 @@ let Home = () => {
     return (
         <>
             <Header />
-            {user && user.id !== "" ?     <HomeComponent />:<Login />}
+            {user && user.id !== "" ?     <HomeComponent />:<HomeComponent />}
         </>)
 }
 

@@ -22,7 +22,7 @@ function App() {
 
   let services = Services();
 
-  console.log(services.getProducts());
+  // console.log(services.getProducts());
 
   let [products, setProducts] = useState<Array<IProducts> | any>([]);
   let [order, setOrder] = useState<number | any>(0.00);
@@ -54,6 +54,7 @@ function App() {
     setProducts(services.getProducts())
     setOrder(services.getGrandTotal())
     setCart(services.getCart())
+    
   }, [])
   
 
@@ -87,7 +88,7 @@ function App() {
 
 
 
-  console.log(products);
+  // console.log(products);
 
 
 

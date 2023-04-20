@@ -25,11 +25,11 @@ describe(
       expect(services.getProducts().length).toBe(15)
     });
 
-    test.skip("Should equal 0 since the product hasnt been added to the cart", () => {
+    test("Should equal 0 since the product hasnt been added to the cart", () => {
       let services = Services();
 
       let expected = services.getSelectedProduct("Face Mask");
-      
+      console.log(expected)
       expect(expected.grand_total()).toBe(0);
     })
 

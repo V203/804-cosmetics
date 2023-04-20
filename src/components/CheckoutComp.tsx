@@ -1,23 +1,34 @@
-import { Flex, Box, Button, Divider, Input, Text, TableContainer, Table, Tr, Td, Th, Thead, Tbody, Tfoot } from "@chakra-ui/react";
-import { useContext } from "react";
+import { Flex, Box, Button, Divider, Input, Text, TableContainer, Table, Tr, Td, Th, Thead, Tbody, Tfoot, Card, CardHeader, CardBody, CardFooter, CloseButton, Image } from "@chakra-ui/react";
+import { useContext, useState } from "react";
 import productsContext from "../context/productsContext";
 import { IProducts } from "../Interfaces/IProducts";
 import { themeStyles } from "../themeStyles/ThemeStyles";
 import { FaCashRegister } from "react-icons/fa"
 import CardSm from "./Cardsm";
+import { Icon } from "@chakra-ui/react";
+import { MdSettings } from "react-icons/md"
 import ViewItem from "./ViewItem";
+import { ViewIcon } from "@chakra-ui/icons"
 
 
 let CheckoutComp = () => {
-    let { cart, handleClickAdd, handleClickSub, order, viewBool, setViewBool,products,services } = useContext<any>(productsContext);
-    
-    let viewItemHandle = (product:IProducts) => {
-    console.log(product);
-    
-       let el:IProducts =  products.find((el:IProducts)=> el.name === product.name)
-       setViewBool(!viewBool)
-       return <CardSm id={product.id} img_url={product.img_url} qty={product.qty} name={product.name} price={product.price}  grand_total={product.grand_total} key={product.id}/>
+    let { cart, handleClickAdd, handleClickSub, order, viewBool, setViewBool, products, services } = useContext<any>(productsContext);
+
+    let [selectedItem, setSelectedItem] = useState<IProducts | any>({ id: 0, img_url: "", grand_total: 0, qty: 0, name: "", price: 0 })
+
+    let viewItemHandle = (product:string) => {
+        
+        console.log(product);
+        
+        setSelectedItem(services.getSelectedProduct(product));
+console.log(selectedItem);
+
+        
+        setViewBool(!viewBool)
+        // return <CardSm id={product.id} img_url={product.img_url} qty={product.qty} name={product.name} price={product.price} grand_total={product.grand_total} key={product.id} />
     }
+
+
 
     let sum: number = 0;
     cart && cart.map((a: any) => {
@@ -25,16 +36,32 @@ let CheckoutComp = () => {
         return sum
     })
 
-    console.log(cart);
-    
+    // console.log(cart);
+
+
 
     {/* <input className="btn" width={25} height={25} value={"-"} type={"button"} onClick={(e: any) => handleClickSub(el.name, e)} />  {el.qty} <input className="btn" width={25} height={25} value={"+"} onClick={(e: any) => handleClickAdd(el.name, e)} type={"button"} /> */ }
     return (
 
         <Flex>
-                
-            <div className="overlay" style={{ display: viewBool ? "grid" : "none" }}>
-            {/* <CardSm id={el.id} img_url={el.img_url} qty={el.qty} name={el.name} price={el.price}  grand_total={el.grand_total} key={el.id}/> */}
+
+            <div className="overlay" style={{ display: viewBool ? "grid" : "none" }} >
+                <Card boxShadow={themeStyles.boxShadow} maxWidth={380}>
+                    <Flex flexDir={"column"} maxW={"100%"}>
+
+                    <CardHeader bgColor={themeStyles.btnColor} color={themeStyles.color}>
+                        <Text>
+                            {selectedItem.name}
+                        </Text>
+                    <CloseButton onClick={()=>setViewBool(!viewBool)}/>
+                    </CardHeader>
+                    </Flex>
+                    <CardBody>
+                        <img src={selectedItem.img_url+".jpeg"} />
+
+                    </CardBody>                
+                </Card>
+
             </div>
 
             <Box className="center" style={{ width: "100em" }}>
@@ -78,7 +105,7 @@ let CheckoutComp = () => {
 
                         </Thead>
                         <Tbody>
-                            {cart && cart.map((el: IProducts | any) => (<Tr> <Td>{el.name}</Td> <Td><Button onClick={e => viewItemHandle(el)} colorScheme={"blue"}>View Product</Button></Td><Td><Button colorScheme={"pink"}>Edit</Button></Td>  <Td>R {el.price}</Td> <Td>{el.qty}</Td> <Td>R{el.grand_total()}</Td> </Tr>))
+                            {cart && cart.map((el: IProducts | any) => (<Tr> <Td>{el.name}</Td> <Td><Button onClick={e => viewItemHandle(el.name)} colorScheme={"blue"}><ViewIcon m={1} /> View Product</Button></Td><Td><Button colorScheme={"pink"}> <Icon as={MdSettings} />Edit</Button></Td> <Td>R {el.price}</Td> <Td>{el.qty}</Td> <Td>R{el.grand_total()}</Td> </Tr>))
 
 
                             }
@@ -97,7 +124,7 @@ let CheckoutComp = () => {
                                 <Td color={"green"}>
                                     <Button bgColor={"yellow.400"} color="green" >
 
-                                        <b style={{ color: "black" }}><b>Pay: </b>R</b>  <strong><b>{order}</b></strong>
+                                        <b style={{ color: "black" }}><b>Place Order: </b>R</b>  <strong><b>{order}</b></strong>
 
                                     </Button>
                                 </Td>

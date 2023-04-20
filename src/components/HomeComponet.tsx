@@ -4,7 +4,7 @@ import ViewItem from "./ViewItem";
 import CartImg from "../CartImg";
 import CartOverView from "./CartOverView";
 import { InfoIcon } from '@chakra-ui/icons'
-import { Box, Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, Container, Divider, Heading, Image, SimpleGrid, Spacer, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, ButtonGroup, Card, CardBody, CardFooter, CardHeader, Container, Divider, Heading, HStack, Image, SimpleGrid, Spacer, Stack, Text } from "@chakra-ui/react";
 import { themeStyles } from "../themeStyles/ThemeStyles";
 let HomeComponent = () => {
     let { services,add, order, sub, setOrder, cart, products, setProducts, grand_total, get_all_products, viewBool, setViewBool, handleClickView, handleClickAdd, handleClickSub } = useContext<any>(productsContext);
@@ -30,29 +30,37 @@ let HomeComponent = () => {
                             <CardHeader minH={49.45} p={2} bgColor={themeStyles.btnColor} color={themeStyles.color} >
                                 <Heading maxH={73} size='xs' textTransform='uppercase'>{el.name}</Heading>
                             </CardHeader>
+                                        <Divider color={themeStyles.btnColor} />
                             <CardBody p="0" m={0}>
                                 <Stack m='0'>
 
                                     <Image src={`${el.img_url}.jpeg`} alt='Green double couch with wooden legs' m={0} p={0} width="100%" maxH="180" />
-                                    <Text color='blue.600' fontSize='xl'>
-                                        <Divider color={themeStyles.btnColor} />
-                                        R{el.price}
+                                    <HStack>
+
+
+                                    <Text color='blue.600' fontSize='xl' m={1} >
+                                        R{el.price}  
                                     </Text>
+                                    <Text color={"black"}> X {el.qty}</Text>
+                                    <Text color={"green"}>
+                                        = R{el.grand_total()}
+                                    </Text>
+                                    </HStack>
                                 </Stack>
 
                             </CardBody>
                             <Divider color={themeStyles.btnColor} />
-                            <CardFooter>
-                                <ButtonGroup spacing='1'>
-                                    <Button onClick={(e) => handleClickAdd(el.name, e)} color={themeStyles.color} bgColor={themeStyles.btnColor}>
-                                        Add
+                            <CardFooter m="0">
+                                <ButtonGroup w={"100%"} spacing='2'>
+                                    <Button fontWeight={"extrabold"} width={"50%"} fontSize={"2xl"} onClick={(e) => handleClickSub(el.name, e)} color={themeStyles.color} bgColor={themeStyles.btnColor}>
+                                        -
                                     </Button>
-                                    <Spacer />
-                                    <Button onClick={(e) => handleClickSub(el.name, e)} color={themeStyles.color} bgColor={themeStyles.btnColor}>
-                                        Remove
+                                    
+                                    <Button fontWeight={"extrabold"} width={"50%"} fontSize={"2xl"} onClick={(e) => handleClickAdd(el.name, e)} color={themeStyles.color} bgColor={themeStyles.btnColor}>
+                                        +
                                     </Button>
                                 </ButtonGroup>
-                                <Text>{el.qty}</Text>
+                                
                             </CardFooter>
 
                             {/* <div id="subHeaderDiv">
@@ -91,7 +99,7 @@ let HomeComponent = () => {
                                 <td>
                                     <div className="qtyOutline">
 
-                                        <div className="qtyBtnCheckout" onClick={(e) => handleClickSub(el.name, e)}>-</div>
+                                        <div className="qtyBtnChecko width={"50%"} fontSize={"2xl"}ut" onClick={(e) => handleClickSub(el.name, e)}>-</div>
                                         <span className="valueOutQty">
                                             {el.qty}
                                         </span>

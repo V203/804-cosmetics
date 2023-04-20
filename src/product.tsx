@@ -1,27 +1,28 @@
 import { IProductsObj } from "./Interfaces/IProducts"
-export let productsObj:Array<IProductsObj | any> =  [
-    {
-        id: 171,
-        name: 'Face Mask',
-        price: 69.98,
-        qty: 0,
-        grand_total: function(){return this.price * this.qty},
-        img_url: 'face-mask'
-    },
+export let productsObj: Array<IProductsObj | any> = [
+
     {
         id: 165,
         name: "Champagne Soap",
         price: 70,
         qty: 0,
-        grand_total: function(){return this.price * this.qty},
+        grand_total: function () { return this.price * this.qty },
         img_url: "champagne-soap"
+    }, {
+        id: 171,
+        name: 'Face Mask',
+        price: 69.98,
+        qty: 0,
+        grand_total: function () { return this.price * this.qty },
+        img_url: 'face-mask'
     },
+
     {
         id: 174,
         name: "Rooibos & Rosemary",
         price: 39.98,
         qty: 0,
-        grand_total:function(){return this.price * this.qty} ,
+        grand_total: function () { return this.price * this.qty },
         img_url: "rooibos-rosemary-soap"
     },
     {
@@ -29,7 +30,7 @@ export let productsObj:Array<IProductsObj | any> =  [
         name: "head,neck and shoulder massage",
         price: 350,
         qty: 0,
-        grand_total:function(){return this.price * this.qty} ,
+        grand_total: function () { return this.price * this.qty },
         img_url: "head_neck_shoulder"
     },
     {
@@ -37,7 +38,7 @@ export let productsObj:Array<IProductsObj | any> =  [
         name: "lavender body wash",
         price: 50,
         qty: 0,
-        grand_total:function(){return this.price * this.qty} ,
+        grand_total: function () { return this.price * this.qty },
         img_url: "tree-lavender-body-wash"
     },
     {
@@ -45,7 +46,7 @@ export let productsObj:Array<IProductsObj | any> =  [
         name: "menthol and mphepho rubbing salf",
         price: 100,
         qty: 0,
-        grand_total:function(){return this.price * this.qty} ,
+        grand_total: function () { return this.price * this.qty },
         img_url: "heabal-mphepho-face-wash"
     },
     {
@@ -53,7 +54,7 @@ export let productsObj:Array<IProductsObj | any> =  [
         name: "Aloe and Rosemary lotion 300ml",
         price: 59.98,
         qty: 0,
-        grand_total:function(){return this.price * this.qty} ,
+        grand_total: function () { return this.price * this.qty },
         img_url: "aloe-rosemary-lotion"
     },
     {
@@ -61,7 +62,7 @@ export let productsObj:Array<IProductsObj | any> =  [
         name: "Aloe Soap 175g",
         price: 59.98,
         qty: 0,
-        grand_total:function(){return this.price * this.qty} ,
+        grand_total: function () { return this.price * this.qty },
         img_url: "aloe-soap"
     },
     {
@@ -69,7 +70,7 @@ export let productsObj:Array<IProductsObj | any> =  [
         name: "charcoal face wash 350ml",
         price: 40,
         qty: 0,
-        grand_total:function(){return this.price * this.qty} ,
+        grand_total: function () { return this.price * this.qty },
         img_url: "charcoal-face-wash"
     },
     {
@@ -77,7 +78,7 @@ export let productsObj:Array<IProductsObj | any> =  [
         name: "804 wound cream",
         price: 150,
         qty: 0,
-        grand_total:function(){return this.price * this.qty} ,
+        grand_total: function () { return this.price * this.qty },
         img_url: "804-wound-cream"
     },
     {
@@ -85,7 +86,7 @@ export let productsObj:Array<IProductsObj | any> =  [
         name: "Mint and honey soap",
         price: 69.98,
         qty: 0,
-        grand_total:function(){return this.price * this.qty} ,
+        grand_total: function () { return this.price * this.qty },
         img_url: "honey-soap"
     },
     {
@@ -93,7 +94,7 @@ export let productsObj:Array<IProductsObj | any> =  [
         name: "Miracle Herb",
         price: 39.89,
         qty: 0,
-        grand_total:function(){return this.price * this.qty} ,
+        grand_total: function () { return this.price * this.qty },
         img_url: "miracle-herb"
     },
     {
@@ -101,7 +102,7 @@ export let productsObj:Array<IProductsObj | any> =  [
         name: "foot massage",
         price: 500,
         qty: 0,
-        grand_total:function(){return this.price * this.qty} ,
+        grand_total: function () { return this.price * this.qty },
         img_url: "foot-massager"
     },
     {
@@ -109,7 +110,7 @@ export let productsObj:Array<IProductsObj | any> =  [
         name: "charcoal clay",
         price: 70,
         qty: 0,
-        grand_total:function(){return this.price * this.qty} ,
+        grand_total: function () { return this.price * this.qty },
         img_url: "charcoal-clay"
     },
     {
@@ -117,7 +118,7 @@ export let productsObj:Array<IProductsObj | any> =  [
         name: "Lavender Soap",
         price: 39.89,
         qty: 0,
-        grand_total:function(){return this.price * this.qty} ,
+        grand_total: function () { return this.price * this.qty },
         img_url: "lavender-soap"
     }
 ]

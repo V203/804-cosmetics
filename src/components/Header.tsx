@@ -15,7 +15,7 @@ let Header = () => {
     const [placement, setPlacement] = useState<string>('right')
 
     let { products, setProducts, order, setOrder, grand_total, getTheUser, cartOverViewBool, setCartOverViewBool, user, setUser } = useContext<any>(productsContext);
-console.log(products);
+// console.log(products);
 
     let navigate = useNavigate();
     let signOut = async () => {
