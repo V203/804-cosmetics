@@ -20,7 +20,6 @@ let Home = () => {
         <>
             <Header />
         {/* <div style={{height:"2.5em"}}>
-
         </div> */}
         <Row>
             <Col md={12}>
