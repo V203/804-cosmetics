@@ -69,7 +69,7 @@ let Login = () => {
 
 
                 <Box maxHeight={"fit-content"}>
-                    <Heading bgColor={themeStyles.btnColor} textAlign="center" color={"white"} style={{ maxWidth: "100%" }}>
+                    <Heading bgColor={themeStyles.subsurfaceColor} textAlign="center" color={"white"} style={{ maxWidth: "100%" }}>
 
                         <Text>
                             Login
@@ -86,11 +86,11 @@ let Login = () => {
                         <Button  m={4}
                             
                             
-                            type='submit' onClick={() => handleSubmit()} bgColor={themeStyles.btnColor} color={themeStyles.color}>
+                            type='submit' onClick={() => handleSubmit()} bgColor={themeStyles.subsurfaceColor} color={themeStyles.color}>
                             <Text>Submit</Text>
                         </Button>
                        
-                        <Button onClick={() => navigate("/")} bgColor={themeStyles.btnColor} color={themeStyles.color}>
+                        <Button onClick={() => navigate("/")} bgColor={themeStyles.subsurfaceColor} color={themeStyles.color}>
                             <Text>Cancel</Text>
                         </Button>
 

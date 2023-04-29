@@ -20,7 +20,7 @@ let CardSm = (props: IProducts) => {
     >
 
         <VStack width={"100%"}>
-            <CardHeader top={0} w={"100%"} color={themeStyles.color} bgColor={themeStyles.btnColor} >{props.name}</CardHeader>
+            <CardHeader top={0} w={"100%"} color={themeStyles.color} bgColor={themeStyles.subsurfaceColor} >{props.name}</CardHeader>
 
                 <Image
                 marginTop={0}
@@ -49,10 +49,10 @@ let CardSm = (props: IProducts) => {
             <CardFooter >
                 <Flex alignItems='center' gap='2'>
 
-                    <Button onClick={(e) => handleClickSub(props.name, e)} colorScheme={themeStyles.btnColor} outlineColor={themeStyles.btnColor} color={themeStyles.btnColor}>
+                    <Button onClick={(e) => handleClickSub(props.name, e)} colorScheme={themeStyles.baseColor} outlineColor={themeStyles.baseColor} color={themeStyles.baseColor}>
                         <Text fontSize={"1.5em"}>-</Text>
                     </Button>
-                    <Button onClick={(e) => handleClickAdd(props.name, e)} outlineColor={themeStyles.btnColor} colorScheme={themeStyles.btnColor} color={themeStyles.btnColor}>
+                    <Button onClick={(e) => handleClickAdd(props.name, e)} outlineColor={themeStyles.baseColor} colorScheme={themeStyles.baseColor} color={themeStyles.baseColor}>
                         <Text fontSize={"1.5em"}>+</Text>
                     </Button>
 

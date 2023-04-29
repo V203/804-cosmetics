@@ -62,20 +62,20 @@ let Header = () => {
                             
                             {/* <Spacer /> */}
 
-                            <div float={"right"} gap={2} pr={1}>
+                            <div >
 
 
-                                <Button size={"sm"} outlineColor={"white"} bgColor={themeStyles.btnColor}>
+                                <Button size={"sm"} outlineColor={"white"} bgColor={themeStyles.subsurfaceColor}>
                                     <BiCartAdd />
                                     <CartOverView />
                                 </Button>
 
-                                <Button outlineColor={"white"} bgColor={themeStyles.btnColor}>
+                                <Button outlineColor={"white"} bgColor={themeStyles.color}>
                                     <CgLogIn onClick={() => navigate("/Login")} />
 
                                 </Button>
 
-                                <Button outlineColor={"white"} bgColor={themeStyles.btnColor}>
+                                <Button outlineColor={"white"} bgColor={themeStyles.color}>
                                     <GoSignOut onClick={signOut} />
                                 </Button>
                             </div>
@@ -124,6 +124,6 @@ export default Header
 
 
 // {<Text>Total  R {order}</Text>} 
-                    // <Button value={"Register"} type={"button"} onClick={() => navigate("/Register")} outlineColor={themeStyles.color} colorScheme={themeStyles.btnColor}>
+                    // <Button value={"Register"} type={"button"} onClick={() => navigate("/Register")} outlineColor={themeStyles.color} colorScheme={themeStyles.color}>
                     //     Register
                     // </Button>
