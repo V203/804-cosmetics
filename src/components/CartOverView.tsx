@@ -46,7 +46,7 @@ let  handleClick = () => navigate("/Checkout")
             <Drawer  placement={"right"} onClose={onClose} isOpen={isOpen}>
                 <DrawerOverlay />
                 <DrawerContent>
-                    <DrawerHeader color={themeStyles.color} bgColor={themeStyles.btnColor} justifyContent={"space-between"}  borderBottomWidth='1px'>
+                    <DrawerHeader color={themeStyles.color} bgColor={themeStyles.baseColor} justifyContent={"space-between"}  borderBottomWidth='1px'>
                          <Flex justify={"space-evenly"}><Text>Cart Summary</Text> <Button onClick={handleClick} variant={'ghost'} color={themeStyles.color} bgColor={"green"} >  To Checkout</Button>
                          </Flex> 
                          </DrawerHeader>
