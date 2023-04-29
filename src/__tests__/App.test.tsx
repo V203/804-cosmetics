@@ -42,7 +42,6 @@ describe(
       expect(services.getCart().length).toBe(2);
     })
 
-
     test("Should be able to get the grand total of all items in the cart", () => {
       let services = Services();
       let result:GLfloat = 1140.00
@@ -54,8 +53,4 @@ describe(
   
       expect(services.getGrandTotal()).toEqual(result.toFixed(2));
     })
-
-
-
-
   });

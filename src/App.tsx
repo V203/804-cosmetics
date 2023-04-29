@@ -15,6 +15,7 @@ import { ChakraProvider, useDisclosure } from '@chakra-ui/react';
 import { IProducts, IUserInfo } from "./Interfaces/IProducts";
 import { User } from "@supabase/supabase-js";
 import { productsObj } from "./product";
+import { ThemeProvider } from "react-bootstrap";
 
 
 
@@ -95,7 +96,8 @@ function App() {
 
   return (
     <div className="App">
-      <ChakraProvider>
+      {/* <ThemeProvider  breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
+  minBreakpoint="xxs"> */}
 
 
         <productsContext.Provider value={{
@@ -115,8 +117,9 @@ function App() {
             </Routes>
           </Router>
         </productsContext.Provider>
+    {/* </ThemeProvider> */}
 
-      </ChakraProvider>
+      
     </div >
 
   )

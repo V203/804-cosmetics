@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import CheckoutComp from "../components/CheckoutComp";
+import { Container } from "@chakra-ui/react";
 
 let Checkout = () => {
 
@@ -11,7 +12,10 @@ let Checkout = () => {
 
         <Header />
         <div style={{height:80}}></div>
+        <Container>
         <CheckoutComp />
+
+        </Container>
         </>)
 }
 

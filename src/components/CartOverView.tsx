@@ -38,10 +38,10 @@ let  handleClick = () => navigate("/Checkout")
     return (
 
         <>
-            <Button colorScheme='green' onClick={onOpen}  gap={2} alignContent={"center"} justifyContent={"center"}>
-                <BsCartPlusFill size={"xs"} />
-                Cart
-            </Button>
+            {/* <Button colorScheme='green' onClick={onOpen}  gap={2} alignContent={"center"} justifyContent={"center"}> */}
+                {/* <BsCartPlusFill  onClick={onOpen} /> */}
+                
+            {/* </Button> */}
 
             <Drawer  placement={"right"} onClose={onClose} isOpen={isOpen}>
                 <DrawerOverlay />

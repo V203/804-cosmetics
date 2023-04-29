@@ -7,8 +7,10 @@ import ProductView from "../components/ProductView";
 import ProductViewPage from "./ProductViewPage";
 import Cart from "../components/CartOverView";
 import BtnPM from "../components/BtnPM";
-import { Box, Flex, Text } from "@chakra-ui/react";
+
 import Login from "./Login";
+import { Row } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
 
 let Home = () => {
     let [] = useState()
@@ -17,7 +19,16 @@ let Home = () => {
     return (
         <>
             <Header />
+        {/* <div style={{height:"2.5em"}}>
+
+        </div> */}
+        <Row>
+            <Col md={12}>
+                " "
+            </Col>
+        </Row>
             {user && user.id !== "" ?     <HomeComponent />:<HomeComponent />}
+            
         </>)
 }
 

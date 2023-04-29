@@ -1,15 +1,15 @@
-import { Flex, Box, Button, Divider, Input, Text, TableContainer, Table, Tr, Td, Th, Thead, Tbody, Tfoot, Card, CardHeader, CardBody, CardFooter, CloseButton, Image } from "@chakra-ui/react";
+import { Flex, Box,  Divider, Input, Text, TableContainer, Table, Tr, Td, Th, Thead, Tbody, Tfoot, Card, CardHeader, CardBody, CardFooter, CloseButton, Image } from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import productsContext from "../context/productsContext";
 import { IProducts } from "../Interfaces/IProducts";
-import { themeStyles } from "../themeStyles/ThemeStyles";
+
 import { FaCashRegister } from "react-icons/fa"
 import CardSm from "./Cardsm";
 import { Icon } from "@chakra-ui/react";
 import { MdSettings } from "react-icons/md"
 import ViewItem from "./ViewItem";
 import { ViewIcon } from "@chakra-ui/icons"
-
+import  Button  from "react-bootstrap/Button";
 
 let CheckoutComp = () => {
     let { cart, handleClickAdd, handleClickSub, order, viewBool, setViewBool, products, services } = useContext<any>(productsContext);
@@ -21,7 +21,7 @@ let CheckoutComp = () => {
         console.log(product);
         
         setSelectedItem(services.getSelectedProduct(product));
-console.log(selectedItem);
+
 
         
         setViewBool(!viewBool)
@@ -42,10 +42,10 @@ console.log(selectedItem);
 
     {/* <input className="btn" width={25} height={25} value={"-"} type={"button"} onClick={(e: any) => handleClickSub(el.name, e)} />  {el.qty} <input className="btn" width={25} height={25} value={"+"} onClick={(e: any) => handleClickAdd(el.name, e)} type={"button"} /> */ }
     return (
-
         <Flex>
 
-            <div className="overlay" style={{ display: viewBool ? "grid" : "none" }} >
+<Button variant="primary" size="lg">hello button</Button> {' '}
+            {/* <Box className="overlay" style={{ display: viewBool ? "grid" : "none" }} >
                 <Card boxShadow={themeStyles.boxShadow} maxWidth={380}>
                     <Flex flexDir={"column"} maxW={"100%"}>
 
@@ -62,11 +62,11 @@ console.log(selectedItem);
                     </CardBody>                
                 </Card>
 
-            </div>
+            </Box> */}
 
-            <Box className="center" style={{ width: "100em" }}>
+            <Box  justifyContent={"center"} alignItems={"center"}>
                 <TableContainer>
-                    <Table variant='striped' colorScheme={"pink"}>
+                    <Table variant='simple' colorScheme={"pink"} minW={"70em"} >
                         <Thead>
                             <Tr>
                                 <Th>
@@ -105,7 +105,7 @@ console.log(selectedItem);
 
                         </Thead>
                         <Tbody>
-                            {cart && cart.map((el: IProducts | any) => (<Tr> <Td>{el.name}</Td> <Td><Button onClick={e => viewItemHandle(el.name)} colorScheme={"blue"}><ViewIcon m={1} /> View Product</Button></Td><Td><Button colorScheme={"pink"}> <Icon as={MdSettings} />Edit</Button></Td> <Td>R {el.price}</Td> <Td>{el.qty}</Td> <Td>R{el.grand_total()}</Td> </Tr>))
+                            {cart && cart.map((el: IProducts | any) => (<Tr> <Td>{el.name}</Td> <Td><Button onClick={e => viewItemHandle(el.name)} ><ViewIcon m={1} /> View Product</Button></Td><Td><Button > <Icon as={MdSettings} />Edit</Button></Td> <Td>R {el.price}</Td> <Td>{el.qty}</Td> <Td>R{el.grand_total()}</Td> </Tr>))
 
 
                             }
@@ -122,7 +122,7 @@ console.log(selectedItem);
                                 </Td>
                                 <Td> <b>Total items: {sum}</b></Td>
                                 <Td color={"green"}>
-                                    <Button bgColor={"yellow.400"} color="green" >
+                                    <Button  color="green" >
 
                                         <b style={{ color: "black" }}><b>Place Order: </b>R</b>  <strong><b>{order}</b></strong>
 
