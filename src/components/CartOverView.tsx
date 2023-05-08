@@ -1,13 +1,4 @@
-import {
-    Drawer,
-    DrawerBody,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerOverlay,
-    DrawerContent,
-    DrawerCloseButton, Text, Box, Divider, SimpleGrid, Container, useDisclosure, Button, Radio, RadioGroup, Stack, HStack, Image, VStack, useTabsStyles, Flex
-} from '@chakra-ui/react'
-import { PhoneIcon, AddIcon } from '@chakra-ui/icons'
+
 import { useContext, useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import productsContext from "../context/productsContext";
@@ -24,26 +15,26 @@ import {BsCartPlusFill} from "react-icons/bs"
 
 
 let CartOverView = () => {
-    let { cart, handleClickAdd, handleClickSub, cartOverViewBool, setCartOverViewBool, products } = useContext<any>(productsContext);
-    let navigate = useNavigate();
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    const [placement, setPlacement] = useState<string>('right')
+    // let { cart, handleClickAdd, handleClickSub, cartOverViewBool, setCartOverViewBool, products } = useContext<any>(productsContext);
+    // let navigate = useNavigate();
+    // const { isOpen, onOpen, onClose } = useDisclosure()
+    // const [placement, setPlacement] = useState<string>('right')
 
 
 
 
-let  handleClick = () => navigate("/Checkout")
+// let  handleClick = (props:any) => navigate("/Checkout")
     // cart.map((el:any)=>  console.log(el));
 
     return (
-
         <>
+        {}
             {/* <Button colorScheme='green' onClick={onOpen}  gap={2} alignContent={"center"} justifyContent={"center"}> */}
                 {/* <BsCartPlusFill  onClick={onOpen} /> */}
                 
             {/* </Button> */}
 
-            <Drawer  placement={"right"} onClose={onClose} isOpen={isOpen}>
+            {/* <Drawer  placement={"right"} onClose={onClose} isOpen={isOpen}>
                 <DrawerOverlay />
                 <DrawerContent>
                     <DrawerHeader color={themeStyles.color} bgColor={themeStyles.baseColor} justifyContent={"space-between"}  borderBottomWidth='1px'>
@@ -58,7 +49,7 @@ let  handleClick = () => navigate("/Checkout")
                         )}
                     </DrawerBody>
                 </DrawerContent>
-            </Drawer>
+            </Drawer> */}
         </>
 
 

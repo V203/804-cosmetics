@@ -32,8 +32,6 @@ let ViewItem = (props:any) => {
 
 
 
-
-
                 </div>
 
 

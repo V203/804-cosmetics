@@ -11,7 +11,7 @@ import supabase from "./Supabase/Supabase";
 import Checkout from "./pages/Checkout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import { ChakraProvider, useDisclosure } from '@chakra-ui/react';
+
 import { IProducts, IUserInfo } from "./Interfaces/IProducts";
 import { User } from "@supabase/supabase-js";
 import { productsObj } from "./product";
@@ -48,7 +48,7 @@ function App() {
       }
     }
 
-    getTheUser()
+    // getTheUser()
   }, [])
 
   useEffect(() => {
@@ -87,23 +87,28 @@ function App() {
     return data;
   }
 
-
+  const [modalShow, setModalShow] = useState(false);
 
   // console.log(products);
+  
+  const [show, setShow] = useState(false);
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
 
 
   return (
     <div className="App">
-      {/* <ThemeProvider  breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
-  minBreakpoint="xxs"> */}
+      <ThemeProvider  breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
+  minBreakpoint="xxs">
 
 
         <productsContext.Provider value={{
           singleItem, setSingleItem, viewBool, setViewBool, handleClickView, cart,
           setCart, products, handleClickAdd, handleClickSub, setProducts, order,
-          setOrder, cartOverViewBool, setCartOverViewBool, name, user, setUser, services
+          setOrder, cartOverViewBool, setCartOverViewBool, name, user, setUser, services,
+          show,handleShow, setShow,handleClose
         }}>
           <Router>
             <Routes>
@@ -117,7 +122,7 @@ function App() {
             </Routes>
           </Router>
         </productsContext.Provider>
-    {/* </ThemeProvider> */}
+    </ThemeProvider>
 
       
     </div >

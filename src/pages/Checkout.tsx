@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import CheckoutComp from "../components/CheckoutComp";
-import { Container } from "@chakra-ui/react";
+import { Container } from "react-bootstrap";
 
 let Checkout = () => {
 

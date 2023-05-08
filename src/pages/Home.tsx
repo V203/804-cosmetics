@@ -7,27 +7,34 @@ import ProductView from "../components/ProductView";
 import ProductViewPage from "./ProductViewPage";
 import Cart from "../components/CartOverView";
 import BtnPM from "../components/BtnPM";
-
+import { Button, Modal } from "react-bootstrap";
 import Login from "./Login";
 import { Row } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
+import Register from "./Register";
+
 
 let Home = () => {
-    let [] = useState()
-    let { getUser,getTheUser,user } = useContext<any>(productsContext);
-    
+
+
+    let { getUser, getTheUser, user } = useContext<any>(productsContext);
+
+console.log(user);
+
+
+
+
     return (
         <>
+
             <Header />
-        {/* <div style={{height:"2.5em"}}>
-        </div> */}
-        <Row>
-            <Col md={12}>
-                " "
-            </Col>
-        </Row>
-            {user && user.id !== "" ?     <HomeComponent />:<HomeComponent />}
-            
+            {user && user.id !== "" ?     <Login />:<HomeComponent />} 
+            <div style={{ minHeight: "5em" }}>
+
+            </div>
+            {/* <Login /> */}
+            {/* <Register /> */}
+            {/* <HomeComponent /> */}
         </>)
 }
 

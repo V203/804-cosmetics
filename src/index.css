@@ -493,26 +493,6 @@ h4 {
 }
 
 
-table,
-th,
-td {
-  width: 35%;
-  border-collapse: collapse;
-  text-align: center;
-  font-family: laila;
-}
-
-th {
-  padding: 5px 5px;
-  margin: auto;
-}
-
-
-tr {
-  border-bottom: 1px solid #009879;
-  padding: 2% 2%;
-  margin: 2% 2%;
-}
 
 
 .center {

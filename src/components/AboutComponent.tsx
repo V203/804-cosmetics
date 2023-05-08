@@ -4,7 +4,7 @@ let AboutComponent = () => {
         <>
 
             <div className="AboutContent">
-            <h1 style={{textAlign:"center"}}>About Component test</h1>
+                <h1 style={{ textAlign: "center" }}>About Component test</h1>
                 <p>
 
                     804 Cosmetics specializes with apotherapy luxurious handmade body products. A research of over two years using various brands we at 804 decided to create
@@ -14,7 +14,6 @@ let AboutComponent = () => {
 
                 <p>
                     We acknowledge that we all have different types of skin ,and, that every type chooses its own ingredients for the comfort and of what works for individuals.
-
                 </p>
 
                 <p>
@@ -28,7 +27,6 @@ let AboutComponent = () => {
                 </p>
 
                 <p>
-
                     Our remarkable aroma body oils and body washes your body will be cleansed and calm and give you that firm. We guarantee a stress relief after a warm bath with our oils and body wash. These products rejuvenates your body after your hot bath of a long day from work.
                 </p>
 

@@ -3,9 +3,11 @@ import Header from "../components/Header";
 import { useContext, useState } from "react";
 import supabase from "../Supabase/Supabase";
 import { useNavigate } from "react-router-dom"
-import { Box, Button, Flex, FormControl, FormLabel, Heading, Input, Spacer, Text } from "@chakra-ui/react";
-import productsContext from "../context/productsContext";
 
+import productsContext from "../context/productsContext";
+import { Col, Container, Row } from "react-bootstrap";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 let Login = () => {
     let navigate = useNavigate();
@@ -63,43 +65,51 @@ let Login = () => {
 
     return (
         <>
-            <Header />
-            <Flex justifyContent={"center"} alignItems={"center"} mt={20}>
 
 
+                <Row>
+                    <Col md={12}>
+                        <Header />
+                    </Col>
+                </Row>
 
-                <Box maxHeight={"fit-content"}>
-                    <Heading bgColor={themeStyles.subsurfaceColor} textAlign="center" color={"white"} style={{ maxWidth: "100%" }}>
+            <Container style={{marginTop:"5em"}}>
+                <Row>
 
-                        <Text>
-                            Login
-                        </Text>
+                    <Col md={4} >
 
-                    </Heading>
+                    </Col>
 
-                    <FormControl isRequired justifyContent="space-around" gap={2}>
-                        <FormLabel>Email: </FormLabel>
-                        <Input placeholder='JohnD@gmail.com' id="email" onChange={handleChange} />
-                        <FormLabel>Password: </FormLabel>
-                        <Input placeholder='00921#@$' id="password" onChange={handleChange} type={"password"}/>
+                    <Col md={4} style={{boxShadow:themeStyles.boxShadow,padding:"1em"}}>
+                        <Form>
+                            <Form.Group className="mb-3" controlId="email">
+                                <Form.Label>Email address</Form.Label>
+                                <Form.Control onChange={handleChange} type="email" placeholder="Enter email" />
+                                <Form.Text className="text-muted">
+                                    We'll never share your email with anyone else.
+                                </Form.Text>
+                            </Form.Group>
 
-                        <Button  m={4}
-                            
-                            
-                            type='submit' onClick={() => handleSubmit()} bgColor={themeStyles.subsurfaceColor} color={themeStyles.color}>
-                            <Text>Submit</Text>
-                        </Button>
-                       
-                        <Button onClick={() => navigate("/")} bgColor={themeStyles.subsurfaceColor} color={themeStyles.color}>
-                            <Text>Cancel</Text>
-                        </Button>
+                            <Form.Group className="mb-3" controlId="password">
+                                <Form.Label>Password</Form.Label>
+                                <Form.Control onChange={handleChange} type="password" placeholder="Password" />
+                            </Form.Group>
+                        
+                           
+                            <Button onClick={()=>handleSubmit} variant="primary" type="submit">
+                                Submit
+                            </Button>
+                        </Form>
 
-                    </FormControl>
+                    </Col>
 
 
-                </Box>
+                    <Col md={4}>
 
-            </Flex>
+                    </Col>
+
+                </Row>
+            </Container>
         </>
     )
 
@@ -108,6 +118,28 @@ let Login = () => {
 };
 
 export default Login;
+
+
+{/* <FormControl isRequired justifyContent="space-around" gap={2}>
+                                    <FormLabel>Email: </FormLabel>
+                                    <Input placeholder='JohnD@gmail.com' id="email" onChange={handleChange} />
+                                    <FormLabel>Password: </FormLabel>
+                                    <Input placeholder='00921#@$' id="password" onChange={handleChange} type={"password"} />
+
+                                    <Button m={4}
+
+
+                                        type='submit' onClick={() => handleSubmit()} bgColor={themeStyles.subsurfaceColor} color={themeStyles.color}>
+                                        <p>Submit</p>
+                                    </Button>
+
+                                    <Button onClick={() => navigate("/")} bgColor={themeStyles.subsurfaceColor} color={themeStyles.color}>
+                                        <p>Cancel</p>
+                                    </Button>
+
+                                </FormControl> */}
+
+
 
 
                     // <span className="inputSpan">Email: <Input required onChange={handleChange} className="sendToRight" placeholder="JohnDoe@gmail.com" id="email" type={"email"} /> </span>
